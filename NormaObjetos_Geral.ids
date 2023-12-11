@@ -7,7 +7,7 @@
     <ids:purpose>Arquivo IDS para verificação dos requisitos de informação de objetos BIM.</ids:purpose>
   </ids:info>
   <ids:specifications>
-    <ids:specification ifcVersion="IFC4 IFC2X3" name="Manufacturer" minOccurs="0" maxOccurs="unbounded" description="Parâmetros &quot;Código Tabela 2C&quot;, &quot;Código Tabela 3E&quot;, &quot;Fabricante&quot; e &quot;Código GTIN&quot;." instructions="- Código do componente, se disponível, na tabela 2C da NBR15965-4;&#xA;- Código do componente, se disponível, na tabela 3E da NBR15965;&#xA;- Nome do fabricante (marca) do produto;&#xA;- Código do Produto.&#xA;&#xA;&#xA;">
+    <ids:specification ifcVersion="IFC4 IFC2X3" name="Manufacturer" minOccurs="0" maxOccurs="unbounded" description="Parâmetros Fabricante e Código GTIN." instructions="Nome do fabricante (marca) do produto; Código do Produto.&#xA;&#xA;&#xA;">
       <ids:applicability>
         <ids:entity>
           <ids:name>
@@ -154,17 +154,9 @@
             <ids:simpleValue>GlobalTradeItemNumber</ids:simpleValue>
           </ids:name>
         </ids:property>
-        <ids:property datatype="IFCIDENTIFIER" minOccurs="1" maxOccurs="unbounded">
-          <ids:propertySet>
-            <ids:simpleValue>Pset_ManufacturerTypeInformation</ids:simpleValue>
-          </ids:propertySet>
-          <ids:name>
-            <ids:simpleValue>ArticleNumber</ids:simpleValue>
-          </ids:name>
-        </ids:property>
       </ids:requirements>
     </ids:specification>
-    <ids:specification ifcVersion="IFC4 IFC2X3" name="Object Library" minOccurs="0" maxOccurs="unbounded" description="Parâmetros &quot;Versão&quot;, &quot;URL&quot; e &quot;Norma(s)&quot;." instructions="- Versão do objeto BIM (cada nova publicação gera nova versão);&#xA;- Link para catálogo ou página referente ao produto;&#xA;- Lista de normas obedecidas pelo produto, separadas por ponto e virgula. Ex: NBR5428-3:2003; NBR12753-5:1998.">
+    <ids:specification ifcVersion="IFC4 IFC2X3" name="Object Library" minOccurs="1" maxOccurs="unbounded" description="Parâmetro Versão." instructions="Versão do objeto BIM (cada nova publicação gera nova versão).">
       <ids:applicability>
         <ids:entity>
           <ids:name>
@@ -178,19 +170,9 @@
             <ids:simpleValue>Version</ids:simpleValue>
           </ids:name>
         </ids:attribute>
-        <ids:attribute>
-          <ids:name>
-            <ids:simpleValue>Location</ids:simpleValue>
-          </ids:name>
-        </ids:attribute>
-        <ids:attribute>
-          <ids:name>
-            <ids:simpleValue>Description</ids:simpleValue>
-          </ids:name>
-        </ids:attribute>
       </ids:requirements>
     </ids:specification>
-    <ids:specification ifcVersion="IFC4 IFC2X3" name="Description" minOccurs="0" maxOccurs="unbounded" description="Parâmetro &quot;Descrição&quot;." instructions="Descrição textual do componente, suficiente para a aquisição correta do mesmo (especificação).&#xA;">
+    <ids:specification ifcVersion="IFC4 IFC2X3" name="Description" minOccurs="0" maxOccurs="unbounded" description="Parâmetro Descrição." instructions="Descrição textual do componente, suficiente para a aquisição correta do mesmo (especificação).&#xA;">
       <ids:applicability>
         <ids:entity>
           <ids:name>
@@ -317,6 +299,69 @@
               <xs:enumeration value="IFCFILTERTYPE" />
               <xs:enumeration value="IFCINTERCEPTORTYPE" />
             </xs:restriction>
+          </ids:name>
+        </ids:entity>
+      </ids:applicability>
+      <ids:requirements>
+        <ids:attribute>
+          <ids:name>
+            <ids:simpleValue>Description</ids:simpleValue>
+          </ids:name>
+        </ids:attribute>
+      </ids:requirements>
+    </ids:specification>
+    <ids:specification ifcVersion="IFC4 IFC2X3" name="Classification" minOccurs="1" maxOccurs="unbounded" description="Parâmetros Código Tabela 2C eCódigo Tabela 3E." instructions="Código do componente, se disponível, na tabela 2C da NBR15965-4; Código do componente, se disponível, na tabela 3E da NBR15965;">
+      <ids:applicability>
+        <ids:entity>
+          <ids:name>
+            <ids:simpleValue>IFCCLASSIFICATIONREFERENCE</ids:simpleValue>
+          </ids:name>
+        </ids:entity>
+      </ids:applicability>
+      <ids:requirements>
+        <ids:attribute>
+          <ids:name>
+            <ids:simpleValue>Identification</ids:simpleValue>
+          </ids:name>
+          <ids:value>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="3E.*" />
+            </xs:restriction>
+          </ids:value>
+        </ids:attribute>
+        <ids:attribute>
+          <ids:name>
+            <ids:simpleValue>Identification</ids:simpleValue>
+          </ids:name>
+          <ids:value>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="2C.*" />
+            </xs:restriction>
+          </ids:value>
+        </ids:attribute>
+      </ids:requirements>
+    </ids:specification>
+    <ids:specification ifcVersion="IFC4 IFC2X3" name="Documentation - URL" minOccurs="1" maxOccurs="unbounded" description="Parâmetro URL." instructions="Link para catálogo ou página referente ao produto.">
+      <ids:applicability>
+        <ids:entity>
+          <ids:name>
+            <ids:simpleValue>IFCDOCUMENTINFORMATION</ids:simpleValue>
+          </ids:name>
+        </ids:entity>
+      </ids:applicability>
+      <ids:requirements>
+        <ids:attribute>
+          <ids:name>
+            <ids:simpleValue>Location</ids:simpleValue>
+          </ids:name>
+        </ids:attribute>
+      </ids:requirements>
+    </ids:specification>
+    <ids:specification ifcVersion="IFC4 IFC2X3" name="Documentation - Description" minOccurs="1" maxOccurs="unbounded" description="Parâmetro Norma(s)." instructions="Lista de normas obedecidas pelo produto, separadas por ponto e virgula. Ex: NBR5428-3:2003; NBR12753-5:1998.">
+      <ids:applicability>
+        <ids:entity>
+          <ids:name>
+            <ids:simpleValue>IFCDOCUMENTREFERENCE</ids:simpleValue>
           </ids:name>
         </ids:entity>
       </ids:applicability>
