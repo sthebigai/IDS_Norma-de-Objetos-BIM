@@ -7,7 +7,7 @@
     <ids:purpose>Arquivo IDS para verificação dos requisitos de informação de objetos BIM cujo objetivo de uso seja para "Concepção Arquitetônica".</ids:purpose>
   </ids:info>
   <ids:specifications>
-    <ids:specification ifcVersion="IFC2X3 IFC4" name="Name" minOccurs="0" maxOccurs="unbounded" description="Nome." instructions="Nome do objeto dentro do projeto.">
+    <ids:specification ifcVersion="IFC2X3 IFC4" name="Name" minOccurs="0" maxOccurs="unbounded" description="Parâmetro Nome." instructions="Nome do objeto dentro do projeto.">
       <ids:applicability>
         <ids:entity>
           <ids:name>
@@ -140,12 +140,12 @@
       <ids:requirements>
         <ids:attribute>
           <ids:name>
-            <ids:simpleValue>Name</ids:simpleValue>
+            <ids:simpleValue>Tag</ids:simpleValue>
           </ids:name>
         </ids:attribute>
       </ids:requirements>
     </ids:specification>
-    <ids:specification ifcVersion="IFC4 IFC2X3" name="IsExternal" minOccurs="0" maxOccurs="unbounded" description="Interno/Externo." instructions="Se o objeto está localizado na parte interna ou externa da edificação. Preenchido com True (Externo) ou False (Interno).">
+    <ids:specification ifcVersion="IFC4 IFC2X3" name="IsExternal" minOccurs="0" maxOccurs="unbounded" description="Parâmetro Interno/Externo." instructions="Se o objeto está localizado na parte interna ou externa da edificação. Preenchido com True (Externo) ou False (Interno).">
       <ids:applicability>
         <ids:entity>
           <ids:name>
@@ -203,7 +203,7 @@
         </ids:property>
       </ids:requirements>
     </ids:specification>
-    <ids:specification ifcVersion="IFC4 IFC2X3" name="LoadBearing" minOccurs="0" maxOccurs="unbounded" description="Estrutural/Não Estrutural." instructions="Se o objeto é estrutural ou não estrutural. Preenchido com True (Estrutural) ou False (Não estrutural).">
+    <ids:specification ifcVersion="IFC4 IFC2X3" name="LoadBearing" minOccurs="0" maxOccurs="unbounded" description="Parâmetro Estrutural/Não Estrutural." instructions="Se o objeto é estrutural ou não estrutural. Preenchido com True (Estrutural) ou False (Não estrutural).">
       <ids:applicability>
         <ids:entity>
           <ids:name>
@@ -251,7 +251,7 @@
         </ids:property>
       </ids:requirements>
     </ids:specification>
-    <ids:specification ifcVersion="IFC4 IFC2X3" name="Length" minOccurs="0" maxOccurs="unbounded" description="Comprimento." instructions="Dimensão longitudinal do objeto.">
+    <ids:specification ifcVersion="IFC4 IFC2X3" name="Length" minOccurs="0" maxOccurs="unbounded" description="Parâmetro Comprimento." instructions="Dimensão longitudinal do objeto.">
       <ids:applicability>
         <ids:entity>
           <ids:name>
@@ -296,7 +296,7 @@
         </ids:property>
       </ids:requirements>
     </ids:specification>
-    <ids:specification ifcVersion="IFC4 IFC2X3" name="Width" minOccurs="0" maxOccurs="unbounded" description="Largura." instructions="Dimensão transversal do objeto.">
+    <ids:specification ifcVersion="IFC4 IFC2X3" name="Width" minOccurs="0" maxOccurs="unbounded" description="Parâmetro Largura." instructions="Dimensão transversal do objeto.&#xA;">
       <ids:applicability>
         <ids:entity>
           <ids:name>
@@ -331,7 +331,7 @@
         </ids:property>
       </ids:requirements>
     </ids:specification>
-    <ids:specification ifcVersion="IFC4 IFC2X3" name="Heigth" minOccurs="0" maxOccurs="unbounded" description="Altura." instructions="Dimensão vertical do objeto ou sua espessura quando cabível.">
+    <ids:specification ifcVersion="IFC4 IFC2X3" name="Heigth" minOccurs="0" maxOccurs="unbounded" description="Parâmetro Altura." instructions="Dimensão vertical do objeto ou sua espessura quando cabível.">
       <ids:applicability>
         <ids:entity>
           <ids:name>
@@ -361,7 +361,7 @@
         </ids:property>
       </ids:requirements>
     </ids:specification>
-    <ids:specification ifcVersion="IFC4 IFC2X3" name="Depth" minOccurs="0" maxOccurs="unbounded" description="Altura." instructions="Dimensão vertical do objeto ou sua espessura quando cabível.">
+    <ids:specification ifcVersion="IFC4 IFC2X3" name="Depth" minOccurs="0" maxOccurs="unbounded" description="Parâmetro Altura." instructions="Dimensão vertical do objeto ou sua espessura quando cabível.">
       <ids:applicability>
         <ids:entity>
           <ids:name>
@@ -387,41 +387,7 @@
         </ids:property>
       </ids:requirements>
     </ids:specification>
-    <ids:specification ifcVersion="IFC4 IFC2X3" name="Area" minOccurs="0" maxOccurs="unbounded" description="Área." instructions="Área do objeto, quando aplicável.">
-      <ids:applicability>
-        <ids:entity>
-          <ids:name>
-            <xs:restriction base="xs:string">
-              <xs:enumeration value="IFCBEAM" />
-              <xs:enumeration value="IFCCOLUMN" />
-              <xs:enumeration value="IFCMEMBER" />
-              <xs:enumeration value="IFCCABLECARRIERSEGMENT" />
-              <xs:enumeration value="IFCCABLESEGMENT" />
-              <xs:enumeration value="IFCDISTRIBUTIONCHAMBERELEMENT" />
-              <xs:enumeration value="IFCCOVERING" />
-              <xs:enumeration value="IFCPLATE" />
-              <xs:enumeration value="IFCROOF" />
-              <xs:enumeration value="IFCSOLARDEVICE" />
-            </xs:restriction>
-          </ids:name>
-        </ids:entity>
-      </ids:applicability>
-      <ids:requirements>
-        <ids:property datatype="IFCAREAMEASURE" minOccurs="1" maxOccurs="unbounded">
-          <ids:propertySet>
-            <xs:restriction base="xs:string">
-              <xs:pattern value=".*BaseQuantities" />
-            </xs:restriction>
-          </ids:propertySet>
-          <ids:name>
-            <xs:restriction base="xs:string">
-              <xs:pattern value=".*Area" />
-            </xs:restriction>
-          </ids:name>
-        </ids:property>
-      </ids:requirements>
-    </ids:specification>
-    <ids:specification ifcVersion="IFC2X3 IFC4" name="Material" minOccurs="0" maxOccurs="unbounded" description="Material/Acabamento." instructions="Designação principial da composição do objeto.">
+    <ids:specification ifcVersion="IFC2X3 IFC4" name="Material" minOccurs="0" maxOccurs="unbounded" description="Parâmetro Material/Acabamento." instructions="Designação principial da composição do objeto.">
       <ids:applicability>
         <ids:entity>
           <ids:name>
